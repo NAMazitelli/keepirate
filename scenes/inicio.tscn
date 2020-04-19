@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/inicio-script.gd" type="Script" id=1]
-[ext_resource path="res://UI/fondo-01.png" type="Texture" id=2]
+[ext_resource path="res://UI/fondo-inicio-01.png" type="Texture" id=2]
 [ext_resource path="res://UI/button-01.png" type="Texture" id=3]
 [ext_resource path="res://UI/button-hover-01.png" type="Texture" id=4]
 [ext_resource path="res://UI/font/xbones.ttf" type="DynamicFontData" id=5]
@@ -92,7 +92,7 @@ texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 expand = true
 [connection signal="pressed" from="Control/VBoxContainer/Jugar" to="Control" method="_on_Jugar_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Instrucciones_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Jugar_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer2/Salir" to="Control" method="_on_Salir_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Instrucciones_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer2/Salir" to="Control" method="_on_Jugar_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer2/Salir" to="Control" method="_on_Salir_pressed"]
