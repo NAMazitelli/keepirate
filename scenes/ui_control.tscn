@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ui_control.gd" type="Script" id=1]
 [ext_resource path="res://UI/barra-progreso-01.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/velocimetro-solo-01.png" type="Texture" id=4]
 [ext_resource path="res://UI/flecha.png" type="Texture" id=5]
 [ext_resource path="res://UI/linea-01.png" type="Texture" id=6]
+[ext_resource path="res://UI/esc-01.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.282353, 0.552941, 0.831373, 1 )
@@ -32,17 +33,20 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="distance" type="NinePatchRect" parent="."]
+visible = false
 margin_right = 591.0
 margin_bottom = 97.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 editor/display_folded = true
+visible = false
 margin_left = -3.0
 margin_top = 754.0
 margin_right = 1915.0
 margin_bottom = 1082.0
 
 [node name="distance_bar" type="ProgressBar" parent="NinePatchRect"]
+visible = false
 margin_left = 751.925
 margin_top = 211.039
 margin_right = 1182.93
@@ -94,6 +98,11 @@ texture = ExtResource( 5 )
 offset = Vector2( 147.684, -49.7087 )
 
 [node name="linea-01" type="Sprite" parent="speed"]
-position = Vector2( 982.002, 981.98 )
+position = Vector2( 982.002, 982.603 )
 scale = Vector2( 0.101086, 0.101086 )
 texture = ExtResource( 6 )
+
+[node name="progreso" type="Sprite" parent="speed"]
+position = Vector2( 767.815, 1034.1 )
+scale = Vector2( 0.0411226, 0.0411226 )
+texture = ExtResource( 7 )

@@ -88,7 +88,6 @@ func set_bullet_gravity(value):
 	
 # CANNON
 func shoot():
-	print("shot")
 	var bullet = bullet_scene.instance()
 	bullet.set_global_position(bullet_spawn.get_global_position())
 	bullet.shoot(directional_force, bullet_gravity)
