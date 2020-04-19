@@ -127,13 +127,13 @@ position = Vector2( 844.235, 719.18 )
 [node name="cannon2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1353.82, 567.109 )
 scale = Vector2( -0.3, 0.3 )
-bullet_angle = 200.0
+bullet_angle = -200.0
 player_prefix = "player_2"
 
 [node name="cannon4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1258.2, 700.218 )
 scale = Vector2( -0.3, 0.3 )
-bullet_angle = 200.0
+bullet_angle = -200.0
 bullet_gravity = 10
 
 [node name="cannon" parent="." instance=ExtResource( 14 )]

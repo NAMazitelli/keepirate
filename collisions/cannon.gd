@@ -66,7 +66,8 @@ func _process(delta):
 	if move_angle_down:
 		set_bullet_angle(bullet_angle - 1)
 		update_directional_force()
-		cannon_sprite.rotation_degrees -= 1
+		cannon_sprite.rotation_degrees -= 1 
+		
 func fire_once():
 	shoot()
 	shooting = false
@@ -98,7 +99,7 @@ func shoot():
 
 # BULLET
 func update_directional_force():
-	var rad = deg2rad(bullet_angle) #* sign(scale.x)
+	var rad = deg2rad(bullet_angle) * sign(scale.x)
 	directional_force = (Vector2(cos(rad), sin(rad)) * bullet_speed) 
 	
 func set_bullet_angle(value):
