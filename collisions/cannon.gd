@@ -101,8 +101,7 @@ func update_directional_force():
 func set_bullet_angle(value):
 	bullet_angle = clamp(value, 0, 359)
 	update()
-	
-	
+
 	
 func _draw():
 	if (preview_ingame):

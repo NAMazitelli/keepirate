@@ -79,7 +79,7 @@ position = Vector2( 688.397, 567.313 )
 [node name="ui_control" parent="." instance=ExtResource( 8 )]
 
 [node name="enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 71.9003, 474.531 )
+position = Vector2( 97.1944, 479.951 )
 enemy_objective = NodePath("../enemy_objective")
 
 [node name="enemy" parent="." instance=ExtResource( 9 )]

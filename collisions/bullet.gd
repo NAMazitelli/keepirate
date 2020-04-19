@@ -12,6 +12,13 @@ func _physics_process(delta):
 	_movement.y += delta * _gravity 
 	var collision_info = move_and_collide(_movement) 
 	if (collision_info):
+		var layer = collision_info.collider.get_collision_layer()
+		if layer == 8:
+			var enemy = collision_info.collider
+			enemy.set_health(enemy.health - 1)
+			queue_free()
+
+
 		var motion = collision_info.remainder.bounce(collision_info.normal)
 		_movement = _movement.bounce(collision_info.normal) * bounce
 		move_and_collide(motion * bounce)
