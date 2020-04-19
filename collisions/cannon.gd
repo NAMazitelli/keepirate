@@ -18,6 +18,7 @@ var shooting = false
 var enabled = false
 var move_angle_down = false
 var move_angle_up = false
+
 # BULLET NODES
 export (PackedScene) var bullet_scene
 export (NodePath) var bullet_spawn_path
@@ -87,6 +88,7 @@ func set_bullet_gravity(value):
 	
 # CANNON
 func shoot():
+	print("shot")
 	var bullet = bullet_scene.instance()
 	bullet.set_global_position(bullet_spawn.get_global_position())
 	bullet.shoot(directional_force, bullet_gravity)
@@ -95,11 +97,11 @@ func shoot():
 
 # BULLET
 func update_directional_force():
-	var rad = deg2rad(bullet_angle)
-	directional_force = Vector2(cos(rad), sin(rad)) * bullet_speed
+	var rad = deg2rad(bullet_angle) * sign(scale.x)
+	directional_force = (Vector2(cos(rad), sin(rad)) * bullet_speed) 
 	
 func set_bullet_angle(value):
-	bullet_angle = clamp(value, 0, 359)
+	bullet_angle = clamp(value, -359, 359)  
 	update()
 
 	
@@ -110,12 +112,12 @@ func _draw():
 		
 		for tick in range(1, preview_line_count):
 			randomize()
-			var color = Color(71, 140, 191)
+			var color = Color(0.53, 0.81, 0.92)
 			
 			tick *= preview_line_length
 			
-			var x = tick * directional_force.x
-			var y = calc_y_position(tick)
+			var x = tick * directional_force.x * sign(scale.x)
+			var y = calc_y_position(tick) 
 			var next_pos = start_pos + Vector2(x, y)
 			draw_line(prev_pos, next_pos, color)
 			prev_pos = next_pos

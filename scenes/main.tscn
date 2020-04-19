@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/cuadrado.jpg" type="Texture" id=2]
@@ -6,21 +6,20 @@
 [ext_resource path="res://scenes/energy_generator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://players/playerTwo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://players/playerOne.tscn" type="PackedScene" id=6]
-[ext_resource path="res://collisions/cannon_right.tscn" type="PackedScene" id=7]
-[ext_resource path="res://collisions/cannon.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/ui_control.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/enemy_spawn.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/enemy_objective.tscn" type="PackedScene" id=12]
-[ext_resource path="res://sprites/ship.png" type="Texture" id=13]
+[ext_resource path="res://collisions/cannon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui_control.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy_objective.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/enemy_spawn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/ship.png" type="Texture" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=3]
 0/name = "cuadrado.jpg 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -39,7 +38,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -52,7 +51,7 @@ max_energy = 1000
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 515.28, 466.835 )
-tile_set = SubResource( 2 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
@@ -71,34 +70,34 @@ position = Vector2( 1005.77, 594.099 )
 [node name="playerOne" parent="." instance=ExtResource( 6 )]
 position = Vector2( 973.737, 757.585 )
 
-[node name="cannon3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1561.32, 570.409 )
-bullet_spawn_path = NodePath("../bullet_spawn")
+[node name="cannon2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1558.21, 567.91 )
+scale = Vector2( -0.3, 0.3 )
+bullet_angle = 0.0
 
-[node name="cannon2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 812.303, 731.78 )
-
-[node name="cannon" parent="." instance=ExtResource( 8 )]
+[node name="cannon" parent="." instance=ExtResource( 7 )]
 position = Vector2( 688.397, 567.313 )
 
-[node name="ui_control" parent="." instance=ExtResource( 9 )]
+[node name="ui_control" parent="." instance=ExtResource( 8 )]
 
-[node name="enemy2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 97.1944, 479.951 )
-enemy_objective = NodePath("../enemy_objective")
+[node name="enemy_objective2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1667.88, 450.607 )
 
-[node name="enemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 159.923, 323.815 )
-enemy_objective = NodePath("../enemy_objective")
+[node name="enemy_spawn2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1960.15, 407.43 )
+enemy_scene = ExtResource( 11 )
+enemy_objective_path = NodePath("../enemy_objective2")
 
-[node name="enemy_spawn" parent="." instance=ExtResource( 11 )]
+[node name="enemy_spawn" parent="." instance=ExtResource( 10 )]
 position = Vector2( 34.5005, 370.869 )
-enemy_scene = ExtResource( 10 )
+enemy_scene = ExtResource( 11 )
+enemy_objective_path = NodePath("../enemy_objective")
+spawn_timer = 8.0
 
-[node name="enemy_objective" parent="." instance=ExtResource( 12 )]
-position = Vector2( 551.134, 525.783 )
+[node name="enemy_objective" parent="." instance=ExtResource( 9 )]
+position = Vector2( 472.53, 513.605 )
 
 [node name="ship" type="Sprite" parent="."]
 position = Vector2( 980.788, 453.51 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 [connection signal="enemy_entered" from="enemy_objective" to="." method="_on_enemy_objective_enemy_entered"]

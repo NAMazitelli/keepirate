@@ -53,10 +53,10 @@ scale = Vector2( 0.129922, 0.129922 )
 texture = ExtResource( 2 )
 
 [node name="energy_bar" type="ProgressBar" parent="speed"]
-margin_left = 203.35
-margin_top = 123.622
-margin_right = 635.35
-margin_bottom = 185.622
+margin_left = 203.0
+margin_top = 125.0
+margin_right = 633.0
+margin_bottom = 184.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 30.0
