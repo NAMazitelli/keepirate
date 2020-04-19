@@ -8,9 +8,9 @@ onready var main = get_parent()
 
 func _input(event):
 	if(enabled):
-		if (event.is_action_pressed("ui_select")):
+		if (event.is_action_pressed("player_2_select")):
 			charging = true
-		elif (event.is_action_released("ui_select")):
+		elif (event.is_action_released("player_2_select")):
 			charging = false
 			
 func _process(delta):

@@ -11,6 +11,7 @@ export (float) var bullet_angle = 180 setget set_bullet_angle
 export (int) var bullet_gravity = 5 setget set_bullet_gravity
 export (int) var bullet_speed = 8 setget set_bullet_speed
 export (float) var bullet_delay = 0.5
+export (String) var player_prefix = "player_1"
 
 var waited = 0
 var directional_force = Vector2()
@@ -23,7 +24,7 @@ var move_angle_up = false
 export (PackedScene) var bullet_scene
 export (NodePath) var bullet_spawn_path
 onready var bullet_spawn = get_node(bullet_spawn_path)
-
+onready var cannon_sprite = get_node("cannon_sprite")
 
 func _ready():
 	# SET BULLET FORCE
@@ -37,18 +38,18 @@ func _ready():
 	
 func _input(event):
 	if(enabled):
-		if (event.is_action_pressed("ui_select")):
+		if (event.is_action_pressed(player_prefix + "_select")):
 			shooting = true
-		elif (event.is_action_released("ui_select")):
+		elif (event.is_action_released(player_prefix + "_select")):
 			shooting = false
-		elif (event.is_action_pressed("ui_up")):
+		elif (event.is_action_pressed(player_prefix + "_up")):
 			move_angle_up = true
-		elif (event.is_action_released("ui_up")):
+		elif (event.is_action_released(player_prefix + "_up")):
 			move_angle_up = false
 
-		elif (event.is_action_pressed("ui_down")):
+		elif (event.is_action_pressed(player_prefix + "_down")):
 			move_angle_down = true
-		elif (event.is_action_released("ui_down")):
+		elif (event.is_action_released(player_prefix + "_down")):
 			move_angle_down = false
 		
 func _process(delta):
@@ -61,10 +62,11 @@ func _process(delta):
 	if move_angle_up:
 		set_bullet_angle(bullet_angle + 1)
 		update_directional_force()
+		cannon_sprite.rotation_degrees += 1
 	if move_angle_down:
 		set_bullet_angle(bullet_angle - 1)
 		update_directional_force()
-
+		cannon_sprite.rotation_degrees -= 1
 func fire_once():
 	shoot()
 	shooting = false
@@ -96,11 +98,11 @@ func shoot():
 
 # BULLET
 func update_directional_force():
-	var rad = deg2rad(bullet_angle) * sign(scale.x)
+	var rad = deg2rad(bullet_angle) #* sign(scale.x)
 	directional_force = (Vector2(cos(rad), sin(rad)) * bullet_speed) 
 	
 func set_bullet_angle(value):
-	bullet_angle = clamp(value, -359, 359)  
+	bullet_angle = clamp(value, -359, 359)
 	update()
 
 	
@@ -111,7 +113,7 @@ func _draw():
 		
 		for tick in range(1, preview_line_count):
 			randomize()
-			var color = Color(0.53, 0.81, 0.92)
+			var color = Color(0.9, 0, 0)
 			
 			tick *= preview_line_length
 			

@@ -6,25 +6,31 @@
 [ext_resource path="res://collisions/enable_cannon.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 143.999, 88.3094 )
+extents = Vector2( 180.913, 88.3094 )
 
 [node name="cannon" type="KinematicBody2D"]
 scale = Vector2( 0.3, 0.3 )
 collision_layer = 4
 script = ExtResource( 1 )
-bullet_angle = 179.0
-bullet_gravity = 3
+preview_line_length = 10
+bullet_angle = -180.0
 bullet_scene = ExtResource( 2 )
-bullet_spawn_path = NodePath("bullet_spawn")
+bullet_spawn_path = NodePath("cannon_sprite/bullet_spawn")
 
-[node name="cannon" type="Sprite" parent="."]
+[node name="cannon_sprite" type="Sprite" parent="."]
+position = Vector2( 101.863, 8.02846 )
+scale = Vector2( 0.984, 0.984 )
 texture = ExtResource( 3 )
+offset = Vector2( -110.09, -6.24109 )
+
+[node name="bullet_spawn" type="Position2D" parent="cannon_sprite"]
+position = Vector2( -297.143, -5.63386 )
+rotation = -3.14159
+scale = Vector2( 1.01595, -1.01595 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.72816, -4.32035 )
 shape = SubResource( 1 )
-
-[node name="bullet_spawn" type="Position2D" parent="."]
-position = Vector2( -145.132, -69.2168 )
 
 [node name="enable_cannon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 137.269, 49.5911 )

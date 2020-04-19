@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/olas_atras.gd" type="Script" id=1]
+[ext_resource path="res://sprites/ola-arriba-01.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "wave"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1956.95, 1097.33 ), Vector2( 1980.13, 981.417 ), Vector2( 1812.69, 838.178 ), Vector2( 1976.26, 772.216 ), Vector2( 1854.65, 922.17 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "wave"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 921.792, 831.594 ), Vector2( 950, 950 ), Vector2( 1064.2, 884.584 ), Vector2( 1011.21, 781.916 ), Vector2( 850, 850 ) ]
+}
+
+[node name="olas_atras" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ola-arriba-02" type="Sprite" parent="."]
+position = Vector2( 1887.34, 881.858 )
+scale = Vector2( 0.461656, 0.461656 )
+texture = ExtResource( 2 )
+
+[node name="waveanim" type="AnimationPlayer" parent="ola-arriba-02"]
+anims/wave = SubResource( 1 )
+
+[node name="ola-arriba-01" type="Sprite" parent="."]
+position = Vector2( 884.771, 841.086 )
+scale = Vector2( 0.352127, 0.352127 )
+texture = ExtResource( 2 )
+
+[node name="waveanim" type="AnimationPlayer" parent="ola-arriba-01"]
+anims/wave = SubResource( 2 )

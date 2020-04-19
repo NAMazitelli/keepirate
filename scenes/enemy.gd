@@ -8,7 +8,8 @@ var direction = Vector2(0, 1)
 var changing = false
 var speed = 80
 var health = 1 setget set_health
-
+var attacking = false
+onready var main = get_parent()
 func _physics_process(delta):
 	waited_time += delta
 	
@@ -21,9 +22,12 @@ func _physics_process(delta):
 	var obj_direction = (objective.position - position).normalized() + direction
 	var motion = obj_direction * speed * delta
 	position += motion
-	if (health == 0):
-		queue_free()
 	
+	if (health == 0):
+		print(attacking)
+		queue_free()
+		if attacking:
+			main.attacking -= 1
 
 func change_direction_once():
 	direction.y *= -1
