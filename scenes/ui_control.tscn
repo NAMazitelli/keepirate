@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ui_control.gd" type="Script" id=1]
-[ext_resource path="res://UI/velocimetro-01.png" type="Texture" id=2]
+[ext_resource path="res://UI/barra-progreso-01.png" type="Texture" id=2]
+[ext_resource path="res://UI/velocimetro-01.png" type="Texture" id=3]
+[ext_resource path="res://UI/velocimetro-solo-01.png" type="Texture" id=4]
+[ext_resource path="res://UI/flecha.png" type="Texture" id=5]
+[ext_resource path="res://UI/linea-01.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.282353, 0.552941, 0.831373, 1 )
@@ -31,26 +35,40 @@ script = ExtResource( 1 )
 margin_right = 591.0
 margin_bottom = 97.0
 
-[node name="distance_bar" type="ProgressBar" parent="distance"]
-margin_left = 109.576
-margin_top = 21.5801
-margin_right = 540.576
-margin_bottom = 66.5801
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
+margin_left = -3.0
+margin_top = 754.0
+margin_right = 1915.0
+margin_bottom = 1082.0
+
+[node name="distance_bar" type="ProgressBar" parent="NinePatchRect"]
+margin_left = 751.925
+margin_top = 211.039
+margin_right = 1182.93
+margin_bottom = 256.039
 
 [node name="speed" type="NinePatchRect" parent="."]
 margin_right = 698.0
 margin_bottom = 281.0
 
+[node name="barra-progreso-01" type="Sprite" parent="speed"]
+position = Vector2( 350.389, 176.535 )
+scale = Vector2( 0.123281, 0.123281 )
+texture = ExtResource( 2 )
+
 [node name="speed_bar" type="ProgressBar" parent="speed"]
-margin_left = 108.784
-margin_top = 245.659
-margin_right = 537.784
-margin_bottom = 290.659
+visible = false
+margin_left = 174.233
+margin_top = 223.004
+margin_right = 603.233
+margin_bottom = 268.004
 
 [node name="velocimetro-01" type="Sprite" parent="speed"]
+visible = false
 position = Vector2( 338.436, 177.144 )
 scale = Vector2( 0.129922, 0.129922 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="energy_bar" type="ProgressBar" parent="speed"]
 margin_left = 203.0
@@ -62,3 +80,20 @@ custom_styles/bg = SubResource( 2 )
 value = 30.0
 rounded = true
 percent_visible = false
+
+[node name="velocimetro-solo-01" type="Sprite" parent="speed"]
+position = Vector2( 139.01, 179.394 )
+scale = Vector2( 0.130757, 0.130757 )
+texture = ExtResource( 4 )
+
+[node name="flecha" type="Sprite" parent="speed"]
+position = Vector2( 144.874, 185.33 )
+rotation = 0.174533
+scale = Vector2( 0.12855, 0.12855 )
+texture = ExtResource( 5 )
+offset = Vector2( 147.684, -49.7087 )
+
+[node name="linea-01" type="Sprite" parent="speed"]
+position = Vector2( 982.002, 981.98 )
+scale = Vector2( 0.101086, 0.101086 )
+texture = ExtResource( 6 )
