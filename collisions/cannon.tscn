@@ -13,7 +13,7 @@ scale = Vector2( 0.3, 0.3 )
 collision_layer = 4
 script = ExtResource( 1 )
 bullet_angle = 190.0
-bullet_gravity = 2
+bullet_gravity = 3
 bullet_scene = ExtResource( 2 )
 bullet_spawn_path = NodePath("bullet_spawn")
 

@@ -25,7 +25,7 @@ func _process(delta):
 		death_timer += delta
 	else:
 		death_timer = 0
-	print(death_timer)
+
 	
 	if (death_timer >= loose_time):
 		game_over()
@@ -44,9 +44,11 @@ func _on_enemy_objective_enemy_entered():
 	attacking +=1
 
 func win_game():
+	get_tree().change_scene("res://scenes/inicio.tscn")
 	print("you win")
 	pass
 
 func game_over():
+	get_tree().change_scene("res://scenes/inicio.tscn")
 	print("game over!")
 	pass

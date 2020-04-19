@@ -2,8 +2,8 @@ extends Node2D
 
 export (PackedScene) var enemy_scene
 
-var spawn_timer = 3.0
-var waited_time = 2.0
+var spawn_timer = 4.0
+var waited_time = 0.0
 onready var enemy_objective = get_parent().get_node("enemy_objective")
 func _process(delta):
 	waited_time+=delta
@@ -12,7 +12,6 @@ func _process(delta):
 		waited_time = 0
 		
 func spawn_enemy():
-	print("spawn")
 	var enemy = enemy_scene.instance()
 	enemy.enemy_objective = enemy_objective.get_path()
 	enemy.position = position

@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/ui_control.gd" type="Script" id=1]
+[ext_resource path="res://UI/velocimetro-01.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.282353, 0.552941, 0.831373, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.231373, 0.427451, 0.741176, 1 )
+border_blend = true
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_detail = 50
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.780392, 0.501961, 0.219608, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 4
 
 [node name="ui_control" type="Control"]
 anchor_right = 1.0
@@ -12,31 +32,33 @@ margin_right = 591.0
 margin_bottom = 97.0
 
 [node name="distance_bar" type="ProgressBar" parent="distance"]
-margin_left = 67.0
-margin_top = 23.0
-margin_right = 498.0
-margin_bottom = 68.0
+margin_left = 109.576
+margin_top = 21.5801
+margin_right = 540.576
+margin_bottom = 66.5801
 
 [node name="speed" type="NinePatchRect" parent="."]
-margin_left = 3.0
-margin_top = 67.0
-margin_right = 559.0
-margin_bottom = 152.0
+margin_right = 698.0
+margin_bottom = 281.0
 
 [node name="speed_bar" type="ProgressBar" parent="speed"]
-margin_left = 57.0
-margin_top = 92.0
-margin_right = 486.0
-margin_bottom = 137.0
+margin_left = 108.784
+margin_top = 245.659
+margin_right = 537.784
+margin_bottom = 290.659
 
-[node name="energy" type="NinePatchRect" parent="."]
-margin_left = 2.25702
-margin_top = 164.58
-margin_right = 593.257
-margin_bottom = 256.58
+[node name="velocimetro-01" type="Sprite" parent="speed"]
+position = Vector2( 338.436, 177.144 )
+scale = Vector2( 0.129922, 0.129922 )
+texture = ExtResource( 2 )
 
-[node name="energy_bar" type="ProgressBar" parent="energy"]
-margin_left = 54.9373
-margin_top = -72.7107
-margin_right = 486.937
-margin_bottom = -27.7107
+[node name="energy_bar" type="ProgressBar" parent="speed"]
+margin_left = 203.35
+margin_top = 123.622
+margin_right = 635.35
+margin_bottom = 185.622
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 30.0
+rounded = true
+percent_visible = false

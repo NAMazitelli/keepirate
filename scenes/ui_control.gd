@@ -6,7 +6,7 @@ var energy_bar
 
 func _ready():
 	distance_bar = get_node("distance/distance_bar")
-	energy_bar = get_node("energy/energy_bar")
+	energy_bar = get_node("speed/energy_bar")
 	speed_bar = get_node("speed/speed_bar")
 	
 	distance_bar.max_value = main.distance_to_goal

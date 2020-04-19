@@ -92,7 +92,7 @@ texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 expand = true
 [connection signal="pressed" from="Control/VBoxContainer/Jugar" to="Control" method="_on_Jugar_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Jugar_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Instrucciones_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Instrucciones" to="Control" method="_on_Jugar_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer2/Salir" to="Control" method="_on_Salir_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer2/Salir" to="Control" method="_on_Jugar_pressed"]

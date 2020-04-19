@@ -105,12 +105,12 @@ func set_bullet_angle(value):
 	
 func _draw():
 	if (preview_ingame):
-		var start_pos = get_node(bullet_spawn_path).get_position()
+		var start_pos = bullet_spawn.get_position()
 		var prev_pos = start_pos
 		
 		for tick in range(1, preview_line_count):
 			randomize()
-			var color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1))
+			var color = Color(71, 140, 191)
 			
 			tick *= preview_line_length
 			
