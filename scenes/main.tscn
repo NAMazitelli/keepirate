@@ -14,10 +14,10 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=3]
 0/name = "cuadrado.jpg 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -36,7 +36,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -53,7 +53,7 @@ scale = Vector2( 0.789374, 0.789374 )
 texture = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
@@ -75,9 +75,19 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="cannon2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 625.614, 484.375 )
+preview_ingame = true
+preview_line_length = 5
+preview_line_count = 10
+bullet_speed = 8
+bullet_delay = 0.5
 
 [node name="cannon" parent="." instance=ExtResource( 8 )]
 position = Vector2( 534.88, 356.668 )
+preview_ingame = true
+preview_line_length = 5
+preview_line_count = 10
+bullet_speed = 8
+bullet_delay = 0.5
 
 [node name="ui_control" parent="." instance=ExtResource( 9 )]
 
