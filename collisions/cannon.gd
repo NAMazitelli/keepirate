@@ -7,7 +7,7 @@ export (int) var preview_line_length = 5 setget set_preview_line_length
 export (int) var preview_line_count = 10 setget set_preview_line_count
 
 # BULLET PROPS
-export (float) var bullet_angle = 180 setget set_bullet_angle
+export (int) var bullet_angle = 180 setget set_bullet_angle
 export (int) var bullet_gravity = 5 setget set_bullet_gravity
 export (int) var bullet_speed = 8 setget set_bullet_speed
 export (float) var bullet_delay = 0.5
@@ -27,6 +27,7 @@ onready var bullet_spawn = get_node(bullet_spawn_path)
 onready var cannon_sprite = get_node("cannon_sprite")
 
 func _ready():
+
 	# SET BULLET FORCE
 	update_directional_force()
 	

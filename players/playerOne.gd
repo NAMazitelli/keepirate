@@ -15,6 +15,7 @@ func get_direction():
 	if movement != 0:
 		animation.play("walk")
 	else:
+		animation.seek(0, true)
 		animation.stop(true)
 		
 	return Vector2(
