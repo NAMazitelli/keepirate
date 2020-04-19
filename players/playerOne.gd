@@ -1,17 +1,14 @@
 extends basePlayer
 var direction = Vector2(0,0)
-var dir_left = 0.0
-var dir_right = 0.0
+
 
 func _physics_process(delta):
-	dir_left = Input.get_action_strength("p1_move_right")
-	dir_right = Input.get_action_strength("p1_move_left")
-	print(dir_left)
-	direction = Vector2(
-		dir_left - dir_right,
-		1.0
-	)
-
-	velocity = speed * direction
+	direction = get_direction()
+	velocity = calculate_move_velocity(velocity, direction, speed)
 	velocity = move_and_slide(velocity)
 	
+func get_direction():
+	return Vector2(
+		Input.get_action_strength("p1_move_right") - Input.get_action_strength("p1_move_left"),
+		1.0
+	)
