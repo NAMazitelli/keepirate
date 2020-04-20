@@ -30,15 +30,17 @@ func _process(delta):
 		danger = true
 		background_danger.show()
 		set_speed(0)
+
+	if danger :
 		death_timer += delta
-	elif danger && current_energy > (max_energy * 10 / 100):
-		danger = false
-		background_danger.hide()
-		death_timer = 0
+		if (current_energy > (max_energy * 10 / 100)):
+			danger = false
+			background_danger.hide()
+			death_timer = 0
+		if (death_timer >= loose_time):
+			game_over()
 
 
-	if (death_timer >= loose_time):
-		game_over()
 
 	if current_distance >= distance_to_goal:
 		win_game()
