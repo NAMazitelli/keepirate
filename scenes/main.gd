@@ -15,9 +15,9 @@ onready var current_speed = max_speed setget set_speed
 onready var current_energy = max_energy setget set_energy
 
 func _process(delta):
-	current_distance += current_speed * delta 
+	current_distance += current_speed * delta
 	set_speed(current_speed - speed_damp * delta)
-	
+
 	if (current_speed > 0):
 		set_energy(current_energy -current_speed * delta)
 	if (current_energy <= 0):
@@ -26,17 +26,17 @@ func _process(delta):
 	else:
 		death_timer = 0
 
-	
+
 	if (death_timer >= loose_time):
 		game_over()
-		
+
 	current_energy -= (attacking * attack_damage) * delta
 	if current_distance >= distance_to_goal:
 		win_game()
-		
+
 func set_speed(value):
 	current_speed = clamp(value, 0, max_speed)
-	
+
 func set_energy(value):
 	current_energy = clamp(value, 0, max_energy)
 

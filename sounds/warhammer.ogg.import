@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/warhammer.ogg-b6cae276ca9e797426d076dce133111e.oggstr"
+
+[deps]
+
+source_file="res://sounds/warhammer.ogg"
+dest_files=[ "res://.import/warhammer.ogg-b6cae276ca9e797426d076dce133111e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

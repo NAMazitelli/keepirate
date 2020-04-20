@@ -4,12 +4,12 @@ var animation
 
 func _ready():
 	animation = get_node("frames/AnimationPlayer")
-	
+
 func _physics_process(delta):
 	direction = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed)
 	velocity = move_and_slide(velocity)
-	
+
 func get_direction():
 	var movement = Input.get_action_strength("p2_move_right") - Input.get_action_strength("p2_move_left")
 	if movement != 0:
@@ -19,6 +19,6 @@ func get_direction():
 		animation.stop(true)
 
 	return Vector2(
- 		movement,
+		movement,
 		1.0
 	)
