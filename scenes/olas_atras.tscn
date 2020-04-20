@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3, 4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1956.95, 1097.33 ), Vector2( 1980.13, 981.417 ), Vector2( 1812.69, 838.178 ), Vector2( 1976.26, 772.216 ), Vector2( 1854.65, 922.17 ) ]
+"values": [ Vector2( 1756.95, 1097.33 ), Vector2( 1780.13, 981.417 ), Vector2( 1612.69, 838.178 ), Vector2( 1776.26, 772.216 ), Vector2( 1654.65, 922.17 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -34,23 +34,23 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3, 4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 921.792, 831.594 ), Vector2( 950, 950 ), Vector2( 1064.2, 884.584 ), Vector2( 1011.21, 781.916 ), Vector2( 850, 850 ) ]
+"values": [ Vector2( 821.792, 831.594 ), Vector2( 850, 950 ), Vector2( 904.2, 884.584 ), Vector2( 911.21, 781.916 ), Vector2( 750, 850 ) ]
 }
 
 [node name="olas_atras" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ola-arriba-02" type="Sprite" parent="."]
-position = Vector2( 1887.34, 881.858 )
-scale = Vector2( 0.461656, 0.461656 )
+position = Vector2( 1744.68, 811.153 )
+scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 2 )
 
 [node name="waveanim" type="AnimationPlayer" parent="ola-arriba-02"]
 anims/wave = SubResource( 1 )
 
 [node name="ola-arriba-01" type="Sprite" parent="."]
-position = Vector2( 884.771, 841.086 )
-scale = Vector2( 0.352127, 0.352127 )
+position = Vector2( 906.848, 845.805 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="waveanim" type="AnimationPlayer" parent="ola-arriba-01"]

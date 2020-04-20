@@ -42,14 +42,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="energy" type="VBoxContainer" parent="ui_control"]
-margin_left = 154.898
+margin_left = 270.889
 margin_top = 124.71
-margin_right = 634.898
+margin_right = 750.889
 margin_bottom = 184.71
 
 [node name="barra-progreso-01" type="Sprite" parent="ui_control/energy"]
 position = Vector2( 206.058, 52.6732 )
-scale = Vector2( 0.12132, 0.127677 )
+scale = Vector2( 0.74, 0.78 )
 texture = ExtResource( 2 )
 
 [node name="energy_bar" type="ProgressBar" parent="ui_control/energy"]
@@ -64,15 +64,15 @@ rounded = true
 percent_visible = false
 
 [node name="speed" type="VBoxContainer" parent="ui_control"]
-editor/display_folded = true
-margin_right = 688.0
+margin_left = 98.7753
+margin_right = 786.775
 margin_bottom = 240.0
 rect_scale = Vector2( 0.984097, 1.03566 )
 rect_pivot_offset = Vector2( 398.932, 75.554 )
 
 [node name="velocimetro-solo-01" type="Sprite" parent="ui_control/speed"]
 position = Vector2( 117.229, 168.369 )
-scale = Vector2( 0.130757, 0.130757 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="flecha" type="Sprite" parent="ui_control/speed"]
@@ -83,7 +83,6 @@ texture = ExtResource( 4 )
 offset = Vector2( 147.684, -49.7087 )
 
 [node name="progress" type="VBoxContainer" parent="ui_control"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

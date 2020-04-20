@@ -5,7 +5,7 @@ export (int) var max_speed
 export (int) var max_energy
 
 var current_distance = 0
-var speed_damp = 2
+var speed_damp = 5
 var attacking = 0
 var attack_damage = 15
 var loose_time = 5.0

@@ -23,7 +23,7 @@ func _process(delta):
 
 func charge_once():
 	sfx.play()
-	main.set_speed(main.current_speed + 2)
+	main.set_speed(main.current_speed + 5)
 	charging = false
 
 func _on_Area2D_body_entered(body):
