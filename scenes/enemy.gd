@@ -24,7 +24,6 @@ func _physics_process(delta):
 	position += motion
 	
 	if (health == 0):
-		print(attacking)
 		queue_free()
 		if attacking:
 			main.attacking -= 1
