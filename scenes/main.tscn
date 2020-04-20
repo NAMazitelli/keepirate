@@ -156,7 +156,7 @@ anims/wings = SubResource( 4 )
 position = Vector2( 174.613, 161.821 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="energy_generator" parent="." instance=ExtResource( 11 )]
+[node name="speed_generator" parent="." instance=ExtResource( 11 )]
 position = Vector2( 921.586, 561.558 )
 
 [node name="energy_generator2" parent="." instance=ExtResource( 12 )]
@@ -225,6 +225,7 @@ environment = SubResource( 5 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
+volume_db = -10.0
 autoplay = true
 [connection signal="enemy_entered" from="enemy_objective2" to="." method="_on_enemy_objective2_enemy_entered"]
 [connection signal="enemy_entered" from="enemy_objective3" to="." method="_on_enemy_objective3_enemy_entered"]
