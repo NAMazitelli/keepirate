@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://collisions/cannon.gd" type="Script" id=1]
 [ext_resource path="res://collisions/bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/cannon.png" type="Texture" id=3]
 [ext_resource path="res://collisions/enable_cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/cannonball.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180.913, 88.3094 )
@@ -12,7 +13,6 @@ extents = Vector2( 180.913, 88.3094 )
 scale = Vector2( 0.3, 0.3 )
 collision_layer = 4
 script = ExtResource( 1 )
-preview_line_length = 10
 bullet_scene = ExtResource( 2 )
 bullet_spawn_path = NodePath("cannon_sprite/bullet_spawn")
 
@@ -33,5 +33,9 @@ shape = SubResource( 1 )
 
 [node name="enable_cannon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 137.269, 49.5911 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
 [connection signal="body_entered" from="enable_cannon" to="." method="_on_enable_cannon_body_entered"]
 [connection signal="body_exited" from="enable_cannon" to="." method="_on_enable_cannon_body_exited"]

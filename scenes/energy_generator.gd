@@ -5,6 +5,7 @@ var charge_delay = 0.3
 var waited = 0
 
 onready var main = get_parent()
+onready var sfx = $AudioStreamPlayer
 
 func _input(event):
 	if(enabled):
@@ -12,15 +13,16 @@ func _input(event):
 			charging = true
 		elif (event.is_action_released("player_1_select")):
 			charging = false
-			
+
 func _process(delta):
 	if (charging && waited > charge_delay):
 		charge_once()
 		waited = 0
 	elif (waited <= charge_delay):
 		waited += delta
-		
+
 func charge_once():
+	sfx.play()
 	main.set_energy(main.current_energy + 50)
 	charging = false
 

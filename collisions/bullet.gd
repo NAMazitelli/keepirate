@@ -9,8 +9,8 @@ func shoot(directional_force, gravity):
 	set_physics_process(true)
 
 func _physics_process(delta):
-	_movement.y += delta * _gravity 
-	var collision_info = move_and_collide(_movement) 
+	_movement.y += delta * _gravity
+	var collision_info = move_and_collide(_movement)
 	if (collision_info):
 		var layer = collision_info.collider.get_collision_layer()
 		if layer == 8:
@@ -23,7 +23,7 @@ func _physics_process(delta):
 		_movement = _movement.bounce(collision_info.normal) * bounce
 		move_and_collide(motion * bounce)
 	else:
-		move_and_collide(_movement) 
+		move_and_collide(_movement)
 
 
 func _on_VisibilityNotifier2D_screen_exited():

@@ -18,7 +18,8 @@ var move_angle_up = false
 export (PackedScene) var bullet_scene
 export (NodePath) var bullet_spawn_path
 onready var bullet_spawn = get_node(bullet_spawn_path)
-onready var cannon_sprite = get_node("cannon_sprite")
+onready var cannon_sprite = $cannon_sprite
+onready var sfx = $AudioStreamPlayer
 
 func _ready():
 
@@ -79,6 +80,7 @@ func set_bullet_gravity(value):
 
 # CANNON
 func shoot():
+	sfx.play()
 	var bullet = bullet_scene.instance()
 	bullet.set_global_position(bullet_spawn.get_global_position())
 	bullet.shoot(directional_force, bullet_gravity)
