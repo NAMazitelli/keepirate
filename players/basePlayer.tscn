@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/player-1-frames.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56.6204, 46.8211 )
+extents = Vector2( 70.9251, 49.3941 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "walk"
@@ -34,7 +34,8 @@ position = Vector2( 0.782076, -26.921 )
 shape = SubResource( 1 )
 
 [node name="frames" type="Sprite" parent="."]
-position = Vector2( -0.899139, -42.2924 )
+position = Vector2( -7.02995, -59.3224 )
+scale = Vector2( 1.28566, 1.28566 )
 texture = ExtResource( 2 )
 hframes = 5
 region_enabled = true

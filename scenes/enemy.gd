@@ -10,6 +10,9 @@ var speed = 80
 var health = 1 setget set_health
 var attacking = false
 onready var main = get_parent()
+func _ready():
+	get_node("enemy_sprite").get_node("fly").play("fly")
+	
 func _physics_process(delta):
 	waited_time += delta
 	
