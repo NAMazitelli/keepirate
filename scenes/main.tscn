@@ -1,24 +1,25 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background.png" type="Texture" id=2]
 [ext_resource path="res://scenes/olas_atras.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/shade-background-op.png" type="Texture" id=4]
-[ext_resource path="res://sprites/cuadrado.jpg" type="Texture" id=5]
-[ext_resource path="res://sprites/ship.png" type="Texture" id=6]
-[ext_resource path="res://sprites/flag.png" type="Texture" id=7]
-[ext_resource path="res://sprites/wings.png" type="Texture" id=8]
-[ext_resource path="res://scenes/olas_adelatne.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/speed_generator.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/energy_generator.tscn" type="PackedScene" id=11]
-[ext_resource path="res://players/playerTwo.tscn" type="PackedScene" id=12]
-[ext_resource path="res://players/playerOne.tscn" type="PackedScene" id=13]
-[ext_resource path="res://collisions/cannon.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/ui_control.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/enemy_objective.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/enemy_spawn.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=18]
-[ext_resource path="res://sounds/warhammer.ogg" type="AudioStream" id=19]
+[ext_resource path="res://sprites/background-danger.png" type="Texture" id=4]
+[ext_resource path="res://sprites/shade-background-op.png" type="Texture" id=5]
+[ext_resource path="res://sprites/cuadrado.jpg" type="Texture" id=6]
+[ext_resource path="res://sprites/ship.png" type="Texture" id=7]
+[ext_resource path="res://sprites/flag.png" type="Texture" id=8]
+[ext_resource path="res://sprites/wings.png" type="Texture" id=9]
+[ext_resource path="res://scenes/olas_adelatne.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/speed_generator.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/energy_generator.tscn" type="PackedScene" id=12]
+[ext_resource path="res://players/playerTwo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://players/playerOne.tscn" type="PackedScene" id=14]
+[ext_resource path="res://collisions/cannon.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/ui_control.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/enemy_objective.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/enemy_spawn.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://sounds/warhammer.ogg" type="AudioStream" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -28,7 +29,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "cuadrado.jpg 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -108,10 +109,15 @@ centered = false
 
 [node name="olas_atras" parent="." instance=ExtResource( 3 )]
 
+[node name="background-danger" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+centered = false
+
 [node name="shade-background-op" type="Sprite" parent="."]
 position = Vector2( -463.524, -260.732 )
 scale = Vector2( 1.48284, 1.48284 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 __meta__ = {
 "_edit_lock_": true
@@ -129,95 +135,98 @@ tile_data = PoolIntArray( 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0
 [node name="ship" type="Sprite" parent="."]
 position = Vector2( 974.886, 466.664 )
 scale = Vector2( 1.22832, 1.22832 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="flag" type="Sprite" parent="."]
 position = Vector2( 974.886, 466.664 )
 scale = Vector2( 1.228, 1.228 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="wings" type="Sprite" parent="."]
 position = Vector2( 916.73, 347.767 )
 scale = Vector2( 1.228, 1.228 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.7837, 96.6047 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wings"]
 autoplay = "wings"
 anims/wings = SubResource( 4 )
 
-[node name="Node2D" parent="." instance=ExtResource( 9 )]
+[node name="Node2D" parent="." instance=ExtResource( 10 )]
 position = Vector2( 174.613, 161.821 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="energy_generator" parent="." instance=ExtResource( 10 )]
+[node name="energy_generator" parent="." instance=ExtResource( 11 )]
 position = Vector2( 921.586, 561.558 )
 
-[node name="energy_generator2" parent="." instance=ExtResource( 11 )]
+[node name="energy_generator2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 919.158, 692.411 )
 
-[node name="playerTwo" parent="." instance=ExtResource( 12 )]
+[node name="playerTwo" parent="." instance=ExtResource( 13 )]
 position = Vector2( 990.306, 586.883 )
 
-[node name="playerOne" parent="." instance=ExtResource( 13 )]
+[node name="playerOne" parent="." instance=ExtResource( 14 )]
 position = Vector2( 844.235, 719.18 )
 
-[node name="cannon2" parent="." instance=ExtResource( 14 )]
+[node name="cannon2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1353.82, 567.109 )
 scale = Vector2( -0.3, 0.3 )
 bullet_angle = 0
 player_prefix = "player_2"
 
-[node name="cannon4" parent="." instance=ExtResource( 14 )]
+[node name="cannon4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1258.2, 700.218 )
 scale = Vector2( -0.3, 0.3 )
 bullet_angle = 0
 
-[node name="cannon" parent="." instance=ExtResource( 14 )]
+[node name="cannon" parent="." instance=ExtResource( 15 )]
 position = Vector2( 549.3, 567.313 )
 player_prefix = "player_2"
 
-[node name="cannon3" parent="." instance=ExtResource( 14 )]
+[node name="cannon3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 595.593, 698.957 )
 
-[node name="ui_control" parent="." instance=ExtResource( 15 )]
+[node name="ui_control" parent="." instance=ExtResource( 16 )]
 
-[node name="enemy_objective2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1483, 508.253 )
+[node name="enemy_objective2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 429.791, 667.061 )
 
-[node name="enemy_objective3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 456.872, 670.147 )
+[node name="enemy_objective3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1550.7, 482.425 )
 
-[node name="enemy_objective4" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1402.34, 671.636 )
+[node name="enemy_objective4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1419.63, 672.459 )
 
-[node name="enemy_spawn" parent="." instance=ExtResource( 17 )]
+[node name="enemy_spawn" parent="." instance=ExtResource( 18 )]
 position = Vector2( 937.26, 16.8868 )
-enemy_scene = ExtResource( 18 )
+enemy_scene = ExtResource( 19 )
 enemy_objective_path = NodePath("../enemy_objective")
 spawn_timer = 2.0
 spawn_list = [ NodePath("../spawn_point_1"), NodePath("../spawn_point_2"), NodePath("../spawn_point_3"), NodePath("../spawn_point_4") ]
 obj_list = [ NodePath("../enemy_objective"), NodePath("../enemy_objective2"), NodePath("../enemy_objective3"), NodePath("../enemy_objective4") ]
 
-[node name="enemy_objective" parent="." instance=ExtResource( 16 )]
+[node name="enemy_objective" parent="." instance=ExtResource( 17 )]
 position = Vector2( 407.614, 473.205 )
 
 [node name="spawn_point_1" type="Position2D" parent="."]
 position = Vector2( 6.13521, 255.901 )
 
 [node name="spawn_point_3" type="Position2D" parent="."]
-position = Vector2( -7.39806, 853.055 )
+position = Vector2( 1933.39, 259.431 )
 
 [node name="spawn_point_4" type="Position2D" parent="."]
 position = Vector2( 1934.62, 851.364 )
 
 [node name="spawn_point_2" type="Position2D" parent="."]
-position = Vector2( 1892.87, 247.299 )
+position = Vector2( 15.0795, 908.766 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 autoplay = true
+[connection signal="enemy_entered" from="enemy_objective2" to="." method="_on_enemy_objective2_enemy_entered"]
+[connection signal="enemy_entered" from="enemy_objective3" to="." method="_on_enemy_objective3_enemy_entered"]
+[connection signal="enemy_entered" from="enemy_objective4" to="." method="_on_enemy_objective4_enemy_entered"]
 [connection signal="enemy_entered" from="enemy_objective" to="." method="_on_enemy_objective_enemy_entered"]

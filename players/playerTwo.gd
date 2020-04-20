@@ -1,7 +1,7 @@
 extends basePlayer
 var direction = Vector2(0,0)
 var animation
-
+var walking = false
 func _ready():
 	animation = get_node("frames/AnimationPlayer")
 
@@ -12,9 +12,11 @@ func _physics_process(delta):
 
 func get_direction():
 	var movement = Input.get_action_strength("p2_move_right") - Input.get_action_strength("p2_move_left")
-	if movement != 0:
+	if movement != 0 && !walking:
 		animation.play("walk")
-	else:
+		walking = true
+	elif walking && movement == 0:
+		walking = false
 		animation.seek(0, true)
 		animation.stop(true)
 

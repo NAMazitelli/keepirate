@@ -17,6 +17,8 @@ func spawn_enemy():
 	var enemy = enemy_scene.instance()
 	randomize()
 	var spawn_index = randi() % spawn_list.size()
+	if (spawn_index > 1):
+		enemy.scale.x = -1
 	
 	enemy.enemy_objective =  get_node(obj_list[spawn_index]).get_path()
 	enemy.position = get_node(spawn_list[spawn_index]).position

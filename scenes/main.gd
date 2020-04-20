@@ -10,10 +10,11 @@ var attacking = 0
 var attack_damage = 15
 var loose_time = 5.0
 var death_timer = 0.0
-
+onready var background_danger = get_node("background-danger")
 onready var current_speed = max_speed setget set_speed
 onready var current_energy = max_energy setget set_energy
 var total_damage = 0
+
 func _process(delta):
 	current_distance += current_speed * delta
 	set_speed(current_speed - speed_damp * delta)
@@ -25,9 +26,11 @@ func _process(delta):
 	else:
 		set_energy(current_energy - total_damage)
 	if (current_energy <= 0):
+		background_danger.show()
 		set_speed(0)
 		death_timer += delta
 	else:
+		background_danger.hide()
 		death_timer = 0
 
 
@@ -43,8 +46,7 @@ func set_speed(value):
 func set_energy(value):
 	current_energy = clamp(value, 0, max_energy)
 
-func _on_enemy_objective_enemy_entered():
-	attacking +=1
+
 
 func win_game():
 	get_tree().change_scene("res://scenes/win.tscn")
@@ -52,3 +54,15 @@ func win_game():
 func game_over():
 	get_tree().change_scene("res://scenes/youlose.tscn")
 
+
+func _on_enemy_objective_enemy_entered():
+	attacking +=1
+
+func _on_enemy_objective4_enemy_entered():
+	attacking +=1
+
+func _on_enemy_objective3_enemy_entered():
+	attacking +=1
+
+func _on_enemy_objective2_enemy_entered():
+	attacking +=1

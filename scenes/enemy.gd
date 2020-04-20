@@ -29,6 +29,7 @@ func _physics_process(delta):
 	if (health == 0):
 		queue_free()
 		if attacking:
+			print(main.attacking)
 			main.attacking -= 1
 
 func change_direction_once():
