@@ -93,7 +93,7 @@ glow_blend_mode = 1
 script = ExtResource( 1 )
 distance_to_goal = 2000
 max_speed = 50
-max_energy = 1000
+max_energy = 500
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

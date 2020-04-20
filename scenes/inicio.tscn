@@ -78,6 +78,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Instructions"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -150.0
