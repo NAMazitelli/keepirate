@@ -14,7 +14,7 @@ onready var background_danger = get_node("background-danger")
 onready var current_speed = max_speed setget set_speed
 onready var current_energy = max_energy setget set_energy
 var total_damage = 0
-
+var danger = true
 func _process(delta):
 	current_distance += current_speed * delta
 	set_speed(current_speed - speed_damp * delta)
@@ -25,11 +25,14 @@ func _process(delta):
 		set_energy((current_energy - current_speed / 100) - total_damage)
 	else:
 		set_energy(current_energy - total_damage)
-	if (current_energy <= 0):
+		
+	if (current_energy <= 0 && !danger):
+		danger = true
 		background_danger.show()
 		set_speed(0)
 		death_timer += delta
-	else:
+	elif danger && current_energy > (max_energy * 10 / 100):
+		danger = false
 		background_danger.hide()
 		death_timer = 0
 

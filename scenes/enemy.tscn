@@ -33,6 +33,7 @@ position = Vector2( 1.68042, -1.35337 )
 scale = Vector2( 1.17551, 1.17551 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 2
 
 [node name="fly" type="AnimationPlayer" parent="enemy_sprite"]
 playback_speed = 5.0
